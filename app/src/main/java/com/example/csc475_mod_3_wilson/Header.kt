@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.material.Icon
-import androidx.compose.material.SnackbarDefaults.backgroundColor
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack

@@ -99,9 +99,9 @@ fun DetailView(toDoId: Int, viewModel: ToDoListViewModel, navController: NavCont
         Column(modifier = Modifier.padding(it),
             horizontalAlignment = Alignment.CenterHorizontally){
             Spacer(modifier = Modifier.height(12.dp))
-            ToDoTextField(label = "To Do", value = viewModel.toDoTaskState,whenChanged = {viewModel.onTaskChanged(it)})
+            ToDoTextField(label = if(toDoId != 0) toDoItem.value.toDoTask else "To Do", value = viewModel.toDoTaskState,whenChanged = {viewModel.onTaskChanged(it)})
             Spacer(modifier = Modifier.height(12.dp))
-            ToDoTextField(label = "Notes", value = viewModel.toDoNotesState , whenChanged = {viewModel.onNotesChanged(it)})
+            ToDoTextField(label = if(toDoId != 0) toDoItem.value.toDoNotes else "Notes", value = viewModel.toDoNotesState , whenChanged = {viewModel.onNotesChanged(it)})
             Spacer(modifier = Modifier.height(12.dp))
             Button(onClick = {
                 if(viewModel.toDoTaskState.isNotEmpty() && viewModel.toDoNotesState.isNotEmpty()) {
