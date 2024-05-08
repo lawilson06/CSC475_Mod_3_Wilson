@@ -100,7 +100,7 @@ fun DetailView(toDoId: Int, viewModel: ToDoListViewModel, navController: NavCont
         Column(modifier = Modifier.padding(it),
             horizontalAlignment = Alignment.CenterHorizontally){
             Spacer(modifier = Modifier.height(12.dp))
-            ToDoTextField(label = if(toDoId != 0) "Update To Do" else "Add To Do", value = viewModel.toDoTaskState,whenChanged = {viewModel.onTaskChanged(it)})
+            ToDoTextField(label = if(toDoId != 0) "Update Task" else "Add To Do", value = viewModel.toDoTaskState,whenChanged = {viewModel.onTaskChanged(it)})
             Spacer(modifier = Modifier.height(12.dp))
             ToDoTextField(label = if(toDoId != 0) "Update Notes" else "Add Notes", value = viewModel.toDoNotesState , whenChanged = {viewModel.onNotesChanged(it)})
             Spacer(modifier = Modifier.height(12.dp))
