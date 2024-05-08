@@ -41,6 +41,7 @@ fun DetailView(toDoId: Int, viewModel: ToDoListViewModel, navController: NavCont
     var confirmDelete by remember { mutableStateOf(false) }
     val toDoItem = viewModel.getToDoItem(toDoId).collectAsState(initial = ToDo(0,"",""))
     val context = LocalContext.current
+
     Scaffold(topBar = {HeaderView(title = if (toDoId != 0) "Update Task" else
                 "Add Task") {navController.navigateUp()}
     },  floatingActionButton = {
@@ -99,9 +100,9 @@ fun DetailView(toDoId: Int, viewModel: ToDoListViewModel, navController: NavCont
         Column(modifier = Modifier.padding(it),
             horizontalAlignment = Alignment.CenterHorizontally){
             Spacer(modifier = Modifier.height(12.dp))
-            ToDoTextField(label = if(toDoId != 0) toDoItem.value.toDoTask else "To Do", value = viewModel.toDoTaskState,whenChanged = {viewModel.onTaskChanged(it)})
+            ToDoTextField(label = if(toDoId != 0) "Update To Do" else "Add To Do", value = viewModel.toDoTaskState,whenChanged = {viewModel.onTaskChanged(it)})
             Spacer(modifier = Modifier.height(12.dp))
-            ToDoTextField(label = if(toDoId != 0) toDoItem.value.toDoNotes else "Notes", value = viewModel.toDoNotesState , whenChanged = {viewModel.onNotesChanged(it)})
+            ToDoTextField(label = if(toDoId != 0) "Update Notes" else "Add Notes", value = viewModel.toDoNotesState , whenChanged = {viewModel.onNotesChanged(it)})
             Spacer(modifier = Modifier.height(12.dp))
             Button(onClick = {
                 if(viewModel.toDoTaskState.isNotEmpty() && viewModel.toDoNotesState.isNotEmpty()) {
